@@ -1,7 +1,8 @@
 angular.module('interim.communityProfile', [])
 
-.controller('CommunityProfileController', function ($scope, $firebaseArray, $rootScope, $stateParams, $state) {
-
+.controller('CommunityProfileController', function ($scope, $firebaseArray, $rootScope, $state, $firebaseObject, communityObject) {
+  console.log("community object", communityObject);
+  $scope.community = communityObject;
   //get all groups for community
    var communityGroupsRef = new Firebase("https://interim.firebaseio.com/community-groups-metadata");
 
@@ -11,6 +12,7 @@ angular.module('interim.communityProfile', [])
 
    //current user for private groups
    var userCurrentID = $rootScope.userInfo ? $rootScope.userInfo.id : $rootScope.communityInfo.id;
+
 
    //adding group
    $scope.addGroup = function(event) {
@@ -112,8 +114,4 @@ angular.module('interim.communityProfile', [])
     //sending user to profile page
     $state.go('community');
   };
-
-  console.log("community obj: ",$rootScope.communityInfo);
-  $scope.community = $rootScope.communityInfo;
-
 });
