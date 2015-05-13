@@ -24,31 +24,6 @@ angular.module('interim.yourCommunityList', ["firebase"])
 
   };
 
-
-  $scope.displayUsersCommunities= function(){
-    //Use $rootscope array of communties
-
-  };
-  $scope.displayUsersGroups= function(){
-    //Use $rootscope array of communties
-  };
-
-
-  // Seach and display results
-  $scope.searchCommunities = function(searchTerm) {
-  };
-  $scope.searchGroups = function(searchTerm) {
-  };
-  $scope.displayResults = function(searchTerm) {
-  };
-
-  // Selecting groups or communities after search results to request permission
-
-  $scope.selectCommunities = function(){
-  };
-  $scope.selectGroups = function(){
-  };
-
   $scope.sendSearch = function(community) {
     searchName = community.toLowerCase();
 
@@ -62,7 +37,7 @@ angular.module('interim.yourCommunityList', ["firebase"])
             //THIS IS THE OBJECT OF THE REQUESTED COMMUNITY
             $scope.requestedCommunity = value;
             // $rootScope.communityInfo = value;
-            $state.go("community-profile", {communityName: value.name, id: value.id});
+            $state.go("community-profile", {communityName: value.name});
             keepGoing = false;
           }
         }
